@@ -3,14 +3,14 @@ interface Entry {
     date: string;
     title: string;
     description: string;
-    imageUrl: string;
+    imageURL: string;
     logoUrl: string;
     urlPrograma: string;
     video: string;
     classe: string;
-    startTime: number;
-    endTime: number;
-    liveBroadcast: boolean;
-    durationInMinutes: number;
+    start_time: number;
+    end_time: number;
+    live_broadcast: boolean;
+    duration_in_minutes: number;
   }
   

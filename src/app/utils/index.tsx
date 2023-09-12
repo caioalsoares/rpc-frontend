@@ -1,20 +1,42 @@
+import dayjs from "dayjs"
+
 export const renderHumanTime = (timestamp: number) => {
-    var h: string | number = new Date(timestamp).getHours();
-    var m: string | number= new Date(timestamp).getMinutes();
+    let hms = dayjs.unix(timestamp).format('HH:mm')
 
-    h  = (h<10) ? '0' + h : h;
-    m = (m<10) ? '0' + m : m;
-
-    var output = h + ':' + m;
-
-    return output
+    return hms
 }
 
-export const isOnAir = (beginTimeStamp: number, endTimeStamp: number) => {
+export const isOnAir = (beginTimeStamp: number, endTimeStamp: number) : boolean => {
     const timeNow = Date.now()
 
-    const isOnAir = timeNow >= beginTimeStamp && timeNow <= endTimeStamp
+    const isOnAir = timeNow >= beginTimeStamp*1000 && timeNow <= endTimeStamp*1000
 
-    return isOnAir ? true : false
+    return isOnAir
 
 }
+
+export const sortArrayOfObjects = (arr: Entry[], propertyName: string, order = 'ascending') => {
+    const sortedArr = arr.sort((a: any, b: any) => {
+      if (a[propertyName] < b[propertyName]) {
+        return -1;
+      }
+      if (a[propertyName] > b[propertyName]) {
+        return 1;
+      }
+      return 0;
+    });
+  
+    if (order === 'descending') {
+      return sortedArr.reverse();
+    }
+  
+    return sortedArr;
+  };
+
+  export const fetchProgramme = async (date: string) => {
+          
+        const fetchProgramme =  await fetch(`https://rpc-back.onrender.com/?date=${date}`)
+        const programmeJson: Entry[]= await fetchProgramme.json()
+
+        return sortArrayOfObjects(programmeJson, "start_time")
+      }
