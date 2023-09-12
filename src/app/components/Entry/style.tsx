@@ -37,6 +37,7 @@ export  const EntryLogoWrapper = styled.div`
     place-items: center;
     justify-content: center;
     height: 60px;
+    width: 60px;
     color: ${props => props.$isOnAir ? '#848484' : 'green' };
     font-weight: 300;
   `
