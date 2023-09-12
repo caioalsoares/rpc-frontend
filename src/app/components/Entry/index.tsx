@@ -88,9 +88,6 @@ import Link from "next/link";
  
   const  Entry =  ()  => {
 
-
-    console.log(programa)
-
     const renderEntryLogo = (logoUrl: string, title: string) => {
         return (
                 <Image src={logoUrl} alt={title} width={60} height={60} />
