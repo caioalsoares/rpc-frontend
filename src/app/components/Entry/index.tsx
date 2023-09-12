@@ -5,6 +5,7 @@ import { Collapse } from 'antd';
 import { fetchProgramme, isOnAir, renderHumanTime } from "@/app/utils";
 import Link from "next/link";
 import { EntryInfoClass, EntryInfoContainer, EntryInfoDescription, EntryInfoHour, EntryLogoWrapper, EntryWrapper, Tag } from "./style";
+import DatePickerComponent from '../DatePicker';
 
 
   interface EntryProps {
@@ -12,8 +13,6 @@ import { EntryInfoClass, EntryInfoContainer, EntryInfoDescription, EntryInfoHour
   }
  
   const  Entry =  async (props: EntryProps) => {
-
-    console.log(props.date)
 
     const program: Entry[] = await fetchProgramme(props.date)
 
@@ -25,7 +24,8 @@ import { EntryInfoClass, EntryInfoContainer, EntryInfoDescription, EntryInfoHour
 
     
 
-    return (
+    const Entries = () => {
+      return (
         program.map(
             (program, index) => { 
 
@@ -69,7 +69,15 @@ import { EntryInfoClass, EntryInfoContainer, EntryInfoDescription, EntryInfoHour
                     )
                 }
         )
+            
+    )}
+    
 
+    return (
+      <>
+          <DatePickerComponent date={props.date}/>
+          <Entries/>
+      </>
     )
   }
 

@@ -6,6 +6,11 @@ export const renderHumanTime = (timestamp: number) => {
     return hms
 }
 
+export const renderDateToText = (date: string) => {
+  require('dayjs/locale/pt')
+  return dayjs(date).locale('pt').format('dddd, D [de] MMMM [de] YYYY')
+}
+
 export const isOnAir = (beginTimeStamp: number, endTimeStamp: number) : boolean => {
     const timeNow = Date.now()
 
