@@ -84,10 +84,12 @@ import Link from "next/link";
     durationInMinutes: 64
   }];
 
-  const programa = () : Promise<Entry[]> => fetch('https://rpc-back.onrender.com/?currentdate=2023-09-11')
   
  
-  const Entry = () => {
+  const  Entry =  ()  => {
+
+
+    console.log(programa)
 
     const renderEntryLogo = (logoUrl: string, title: string) => {
         return (
