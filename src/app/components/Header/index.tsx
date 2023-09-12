@@ -1,7 +1,6 @@
 'use client'
 
 import styled from 'styled-components'
-import Image from 'next/image'
 
 const HeaderWrapper = styled.div`
     padding: 16px;
@@ -19,7 +18,6 @@ const HeaderTitle = styled.span`
 const Header = () => {
     return (
        <HeaderWrapper>
-            <Image src='/rpc.png' alt='RPC logo' width={46} height={19} />
             <HeaderTitle>Grade de Programação</HeaderTitle>
        </HeaderWrapper>
     )
