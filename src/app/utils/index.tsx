@@ -1,8 +1,8 @@
 export const renderHumanTime = (timestamp: number) => {
-    var h = new Date(timestamp).getHours();
-    var m= new Date(timestamp).getMinutes();
+    var h: string | number = new Date(timestamp).getHours();
+    var m: string | number= new Date(timestamp).getMinutes();
 
-    h = (h<10) ? '0' + h : h;
+    h  = (h<10) ? '0' + h : h;
     m = (m<10) ? '0' + m : m;
 
     var output = h + ':' + m;
